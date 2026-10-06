@@ -5,18 +5,38 @@ DATA_DIR = os.path.join(BASE_DIR, "data")
 MODELS_DIR = os.path.join(BASE_DIR, "models")
 ORIGINAL_DB_PATH = os.path.join(DATA_DIR, "music_mood.db")
 
-# In serverless / Vercel environments, copy SQLite DB to writable /tmp
+# In serverless / Vercel environments, ensure SQLite DB is in writable /tmp
 if os.environ.get("VERCEL") or os.environ.get("AWS_LAMBDA_FUNCTION_NAME"):
     import shutil
     TMP_DIR = "/tmp/music_mood_data"
     os.makedirs(TMP_DIR, exist_ok=True)
     DATABASE_PATH = os.path.join(TMP_DIR, "music_mood.db")
-    if not os.path.exists(DATABASE_PATH) and os.path.exists(ORIGINAL_DB_PATH):
-        try:
-            shutil.copy2(ORIGINAL_DB_PATH, DATABASE_PATH)
-        except Exception as e:
-            print(f"Notice: Failed to copy DB to /tmp, falling back to original: {e}")
-            DATABASE_PATH = ORIGINAL_DB_PATH
+    if not os.path.exists(DATABASE_PATH):
+        db_sources = [
+            ORIGINAL_DB_PATH,
+            os.path.join(BASE_DIR, "data", "music_mood.db"),
+            os.path.join(BASE_DIR, "music_mood.db"),
+            os.path.join(os.getcwd(), "backend", "data", "music_mood.db"),
+            os.path.join(os.path.dirname(BASE_DIR), "backend", "data", "music_mood.db"),
+        ]
+        copied = False
+        for src in db_sources:
+            if os.path.exists(src) and os.path.getsize(src) > 0:
+                try:
+                    shutil.copy2(src, DATABASE_PATH)
+                    print(f"Successfully copied DB from {src} to {DATABASE_PATH}")
+                    copied = True
+                    break
+                except Exception as e:
+                    print(f"Notice: Failed copying from {src}: {e}")
+        if not copied and not os.path.exists(DATABASE_PATH):
+            try:
+                import sqlite3
+                conn = sqlite3.connect(DATABASE_PATH)
+                conn.close()
+                print(f"Created empty DB at {DATABASE_PATH}")
+            except Exception as e:
+                print(f"Failed to touch empty DB: {e}")
 else:
     DATABASE_PATH = ORIGINAL_DB_PATH
 

@@ -31,96 +31,99 @@ def extract_youtube_id(url_or_thumb: str) -> Optional[str]:
 
 def init_db():
     """Create all required tables with era and song_rating fields."""
-    conn = get_connection()
-    cursor = conn.cursor()
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
 
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS users (
-        id TEXT PRIMARY KEY,
-        name TEXT,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )
-    """)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            id TEXT PRIMARY KEY,
+            name TEXT,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+        """)
 
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS songs (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        music_name TEXT NOT NULL,
-        singer TEXT,
-        release INTEGER,
-        era TEXT,
-        lyrics TEXT,
-        thumbnail TEXT,
-        youtube_id TEXT,
-        clean_lyrics TEXT,
-        song_rating REAL DEFAULT 0.0,
-        primary_mood TEXT,
-        secondary_mood TEXT,
-        happy_score REAL DEFAULT 0,
-        sad_score REAL DEFAULT 0,
-        romantic_score REAL DEFAULT 0,
-        calm_score REAL DEFAULT 0,
-        energetic_score REAL DEFAULT 0,
-        motivational_score REAL DEFAULT 0,
-        nostalgic_score REAL DEFAULT 0
-    )
-    """)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS songs (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            music_name TEXT NOT NULL,
+            singer TEXT,
+            release INTEGER,
+            era TEXT,
+            lyrics TEXT,
+            thumbnail TEXT,
+            youtube_id TEXT,
+            clean_lyrics TEXT,
+            song_rating REAL DEFAULT 0.0,
+            primary_mood TEXT,
+            secondary_mood TEXT,
+            happy_score REAL DEFAULT 0,
+            sad_score REAL DEFAULT 0,
+            romantic_score REAL DEFAULT 0,
+            calm_score REAL DEFAULT 0,
+            energetic_score REAL DEFAULT 0,
+            motivational_score REAL DEFAULT 0,
+            nostalgic_score REAL DEFAULT 0
+        )
+        """)
 
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS user_feedback (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user_id TEXT NOT NULL,
-        song_id INTEGER NOT NULL,
-        action TEXT NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY(song_id) REFERENCES songs(id)
-    )
-    """)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS user_feedback (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id TEXT NOT NULL,
+            song_id INTEGER NOT NULL,
+            action TEXT NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY(song_id) REFERENCES songs(id)
+        )
+        """)
 
-    # Ensure new columns exist if table was created previously
-    cursor.execute("PRAGMA table_info(songs)")
-    cols = [r[1] for r in cursor.fetchall()]
-    if cols and "era" not in cols:
-        cursor.execute("ALTER TABLE songs ADD COLUMN era TEXT")
-    if cols and "song_rating" not in cols:
-        cursor.execute("ALTER TABLE songs ADD COLUMN song_rating REAL DEFAULT 0.0")
+        # Ensure new columns exist if table was created previously
+        cursor.execute("PRAGMA table_info(songs)")
+        cols = [r[1] for r in cursor.fetchall()]
+        if cols and "era" not in cols:
+            cursor.execute("ALTER TABLE songs ADD COLUMN era TEXT")
+        if cols and "song_rating" not in cols:
+            cursor.execute("ALTER TABLE songs ADD COLUMN song_rating REAL DEFAULT 0.0")
 
-    # Ensure new columns exist in users table
-    cursor.execute("PRAGMA table_info(users)")
-    user_cols = [r[1] for r in cursor.fetchall()]
-    if "email" not in user_cols:
-        cursor.execute("ALTER TABLE users ADD COLUMN email TEXT")
-    if "password" not in user_cols:
-        cursor.execute("ALTER TABLE users ADD COLUMN password TEXT")
-    if "avatar" not in user_cols:
-        cursor.execute("ALTER TABLE users ADD COLUMN avatar TEXT")
+        # Ensure new columns exist in users table
+        cursor.execute("PRAGMA table_info(users)")
+        user_cols = [r[1] for r in cursor.fetchall()]
+        if "email" not in user_cols:
+            cursor.execute("ALTER TABLE users ADD COLUMN email TEXT")
+        if "password" not in user_cols:
+            cursor.execute("ALTER TABLE users ADD COLUMN password TEXT")
+        if "avatar" not in user_cols:
+            cursor.execute("ALTER TABLE users ADD COLUMN avatar TEXT")
 
-    # Fast indexed search across 24,000+ tracks
-    cursor.execute("CREATE INDEX IF NOT EXISTS idx_songs_primary_mood ON songs(primary_mood)")
-    cursor.execute("CREATE INDEX IF NOT EXISTS idx_songs_release ON songs(release)")
-    cursor.execute("CREATE INDEX IF NOT EXISTS idx_songs_era ON songs(era)")
-    cursor.execute("CREATE INDEX IF NOT EXISTS idx_songs_rating ON songs(song_rating)")
-    cursor.execute("CREATE INDEX IF NOT EXISTS idx_songs_music_name ON songs(music_name)")
-    cursor.execute("CREATE INDEX IF NOT EXISTS idx_songs_singer ON songs(singer)")
-    cursor.execute("CREATE INDEX IF NOT EXISTS idx_feedback_user ON user_feedback(user_id)")
-    cursor.execute("CREATE INDEX IF NOT EXISTS idx_feedback_song ON user_feedback(song_id)")
-    cursor.execute("CREATE INDEX IF NOT EXISTS idx_users_email ON users(email)")
+        # Fast indexed search across 24,000+ tracks
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_songs_primary_mood ON songs(primary_mood)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_songs_release ON songs(release)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_songs_era ON songs(era)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_songs_rating ON songs(song_rating)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_songs_music_name ON songs(music_name)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_songs_singer ON songs(singer)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_feedback_user ON user_feedback(user_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_feedback_song ON user_feedback(song_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_users_email ON users(email)")
 
-    # Seed default verified user account
-    default_pw = hashlib.sha256("password123".encode("utf-8")).hexdigest()
-    cursor.execute("""
-        INSERT OR IGNORE INTO users (id, name, email, password, avatar)
-        VALUES (?, ?, ?, ?, ?)
-    """, (
-        "user-tanuj",
-        "Tanuj",
-        "tanuj@moodbeats.com",
-        default_pw,
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
-    ))
+        # Seed default verified user account
+        default_pw = hashlib.sha256("password123".encode("utf-8")).hexdigest()
+        cursor.execute("""
+            INSERT OR IGNORE INTO users (id, name, email, password, avatar)
+            VALUES (?, ?, ?, ?, ?)
+        """, (
+            "user-tanuj",
+            "Tanuj",
+            "tanuj@moodbeats.com",
+            default_pw,
+            "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+        ))
 
-    conn.commit()
-    conn.close()
+        conn.commit()
+        conn.close()
+    except Exception as e:
+        print(f"Notice: init_db safe fallback: {e}")
 
 def hash_password(password: str) -> str:
     """Return SHA-256 hash of password string."""
