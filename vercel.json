@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "installCommand": "npm install",
   "buildCommand": "npm install && npm run build",
   "outputDirectory": "dist",
   "functions": {
     "api/index.py": {
-      "runtime": "vercel-python@4"
+      "runtime": "@vercel/python"
     }
   },
   "routes": [
@@ -14,12 +13,7 @@
       "dest": "/api/index.py"
     },
     {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/(.*\\.(js|css|ico|png|jpg|svg|webp|woff2?))",
-      "dest": "/$1"
+      "handle": "filesystem"
     },
     {
       "src": "/(.*)",

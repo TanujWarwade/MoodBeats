@@ -1,0 +1,6 @@
+# Prevent Vercel from scanning backend/ as serverless functions
+# Only api/ should be treated as serverless functions
+backend/
+scripts/
+node_modules/
+dist/
