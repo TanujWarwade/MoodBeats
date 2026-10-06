@@ -1,11 +1,21 @@
 import os
 import sys
 
-# Ensure UTF-8 stdout on Windows
+# Ensure UTF-8 stdout on Windows (ignored safely on Linux/Vercel)
 if hasattr(sys.stdout, "reconfigure"):
-    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# ── Path setup: ensure project root is importable ───────────────────
+# backend/app.py  →  __file__ = /var/task/backend/app.py
+# project root   →  /var/task/
+_BACKEND_DIR = os.path.dirname(os.path.abspath(__file__))
+_ROOT_DIR = os.path.dirname(_BACKEND_DIR)
+for _p in [_ROOT_DIR, _BACKEND_DIR]:
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
