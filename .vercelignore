@@ -1,6 +1,6 @@
-# Prevent Vercel from scanning backend/ as serverless functions
-# Only api/ should be treated as serverless functions
-backend/
-scripts/
+# Don't deploy dev/build artifacts — backend/ MUST be included (it's not in api/ so Vercel won't auto-detect it as a function)
 node_modules/
-dist/
+.git/
+__pycache__/
+*.pyc
+*.pyo
