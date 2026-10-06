@@ -39,16 +39,16 @@ const finalDatabase = {};
 
 for (const [mood, songs] of Object.entries(ytDatabase)) {
   finalDatabase[mood] = songs.map(s => ({
-    id: \`yt-\${s.id}\`,
+    id: `yt-${s.id}`,
     spotifyId: s.id, // Keeping same key name for compatibility
     title: s.title,
     artist: s.artist,
-    thumbnail: \`https://img.youtube.com/vi/\${s.id}/hqdefault.jpg\`,
+    thumbnail: `https://img.youtube.com/vi/${s.id}/hqdefault.jpg`,
     duration: s.duration
   }));
 }
 
-const dbCode = \`
+const dbCode = `
 export const moods = [
   { id: 'trending', label: 'Trending', emoji: '📈', theme: 'trending' },
   { id: 'party', label: 'Party', emoji: '🎉', theme: 'energetic' },
@@ -60,7 +60,7 @@ export const moods = [
   { id: 'focus', label: 'Focus & Study', emoji: '📚', theme: 'trending' },
 ];
 
-const songData = \${JSON.stringify(finalDatabase, null, 2)};
+const songData = ${JSON.stringify(finalDatabase, null, 2)};
 
 export const getSongs = (moodId) => {
   const data = songData[moodId];
@@ -72,7 +72,7 @@ export const getSongs = (moodId) => {
   
   return songData['trending'];
 };
-\`;
+`;
 
 fs.writeFileSync('src/data/database.js', dbCode);
 console.log('YouTube Database generated successfully!');

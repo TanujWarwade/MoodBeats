@@ -11,6 +11,16 @@ node_modules
 dist
 dist-ssr
 *.local
+.vercel
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+env/
+venv/
 
 # Editor directories and files
 .vscode/*

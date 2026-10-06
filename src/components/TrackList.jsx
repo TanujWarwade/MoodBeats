@@ -53,14 +53,28 @@ const TrackList = ({ mood }) => {
       setIsPlaying(true);
     } else {
       setIsPlaying(!isPlaying);
+      // control iframe player if available
+      try {
+        if (playerRef.current && playerRef.current.contentWindow) {
+          const cmd = isPlaying ? 'pauseVideo' : 'playVideo';
+          playerRef.current.contentWindow.postMessage(JSON.stringify({ event: 'command', func: cmd, args: [] }), '*');
+        }
+      } catch (e) {}
     }
   };
 
   const handleSeek = (e) => {
     const seekTo = parseFloat(e.target.value);
     setProgress(seekTo);
-    if (playerRef.current) {
-      playerRef.current.seekTo(seekTo);
+    if (playerRef.current && playerRef.current.contentWindow) {
+      // compute seconds from song duration if available
+      const durParts = (activeSong.duration || '').split(':').map(Number);
+      let total = 0;
+      if (durParts.length === 2) total = durParts[0] * 60 + durParts[1];
+      const seconds = total ? Math.round(total * seekTo) : 0;
+      try {
+        playerRef.current.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'seekTo', args: [seconds, true] }), '*');
+      } catch (e) {}
     }
   };
 
@@ -156,25 +170,21 @@ const TrackList = ({ mood }) => {
           {/* Left: Song Info & Hidden YouTube Player */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '14px', minWidth: '30%', maxWidth: '30%' }}>
             {/* Thumbnail Container containing the Hidden Player */}
-            <div style={{ position: 'relative', width: '56px', height: '56px', borderRadius: '4px', overflow: 'hidden', flexShrink: 0 }}>
-              
-              <ReactPlayer
-                ref={playerRef}
-                url={videoUrl}
-                playing={isPlaying}
-                width="56px"
-                height="56px"
-                onProgress={(e) => setProgress(e.played)}
-                onEnded={handleNext}
-                style={{ position: 'absolute', top: 0, left: 0, zIndex: 1 }}
-                config={{
-                  youtube: {
-                    playerVars: { autoplay: 1, controls: 0, playsinline: 1 }
-                  }
-                }}
-              />
-              <img src={activeSong.thumbnail} alt="Poster" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 2 }} />
-            </div>
+            <div data-player-url={videoUrl} style={{ position: 'relative', width: '56px', height: '56px', borderRadius: '4px', overflow: 'hidden', flexShrink: 0 }}>
+                {activeTrackId ? (
+                  <iframe
+                    ref={playerRef}
+                    title="yt-player"
+                    src={`https://www.youtube.com/embed/${activeTrackId}?autoplay=1&controls=0&playsinline=1&enablejsapi=1&origin=${encodeURIComponent(window.location.origin)}`}
+                    width="56"
+                    height="56"
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media"
+                    style={{ position: 'absolute', top: 0, left: 0, zIndex: 1 }}
+                  />
+                ) : null}
+                <img src={activeSong.thumbnail} alt="Poster" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 2 }} />
+              </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
               <div style={{ color: '#fff', fontSize: '0.875rem', fontWeight: '400', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '200px' }}>
