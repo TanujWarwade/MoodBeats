@@ -1,7 +1,11 @@
 import math
 import re
-from backend.config import MOOD_LEXICON, SUPPORTED_MOODS, SINGER_MOOD_PRIORS
-from backend.preprocessing import clean_lyrics, get_meaningful_tokens
+try:
+    from backend.config import MOOD_LEXICON, SUPPORTED_MOODS, SINGER_MOOD_PRIORS
+    from backend.preprocessing import clean_lyrics, get_meaningful_tokens
+except ModuleNotFoundError:
+    from config import MOOD_LEXICON, SUPPORTED_MOODS, SINGER_MOOD_PRIORS
+    from preprocessing import clean_lyrics, get_meaningful_tokens
 
 MOOD_NAMES = [m["id"] for m in SUPPORTED_MOODS]
 

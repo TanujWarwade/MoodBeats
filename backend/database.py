@@ -3,7 +3,11 @@ import re
 import hashlib
 import time
 from typing import Optional, List, Dict, Any
-from backend.config import DATABASE_PATH
+
+try:
+    from backend.config import DATABASE_PATH
+except ModuleNotFoundError:
+    from config import DATABASE_PATH
 
 def get_connection() -> sqlite3.Connection:
     """Return a connection to the SQLite database with dictionary cursor row factory."""

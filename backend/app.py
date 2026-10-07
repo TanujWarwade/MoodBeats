@@ -8,38 +8,81 @@ if hasattr(sys.stdout, "reconfigure"):
     except Exception:
         pass
 
-# ── Path setup: ensure project root is importable ───────────────────
-# backend/app.py  →  __file__ = /var/task/backend/app.py
-# project root   →  /var/task/
-_BACKEND_DIR = os.path.dirname(os.path.abspath(__file__))
-_ROOT_DIR = os.path.dirname(_BACKEND_DIR)
-for _p in [_ROOT_DIR, _BACKEND_DIR]:
+# ── Path & Package setup: ensure 'backend' package is always resolvable ──
+# Works both when deployed as full project (from api/index.py) and when
+# deployed with Root Directory set to backend/ (where __file__ is /var/task/app.py)
+_CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+_PARENT_DIR = os.path.dirname(_CURRENT_DIR)
+
+for _p in [_CURRENT_DIR, _PARENT_DIR]:
     if _p not in sys.path:
         sys.path.insert(0, _p)
+
+if "backend" not in sys.modules:
+    try:
+        import backend
+    except ModuleNotFoundError:
+        import types
+        _backend_pkg = types.ModuleType("backend")
+        _backend_pkg.__path__ = [_CURRENT_DIR]
+        _backend_pkg.__file__ = os.path.join(_CURRENT_DIR, "__init__.py")
+        sys.modules["backend"] = _backend_pkg
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-from backend.config import SUPPORTED_MOODS
-from backend.recommender import MusicRecommendationEngine
-from backend.database import (
-    init_db,
-    get_song_by_id,
-    discover_songs,
-    get_user_profile_stats,
-    get_user_library,
-    register_user,
-    login_user,
-    get_user_profile
-)
+try:
+    from backend.config import SUPPORTED_MOODS
+    from backend.recommender import MusicRecommendationEngine
+    from backend.database import (
+        init_db,
+        get_song_by_id,
+        discover_songs,
+        get_user_profile_stats,
+        get_user_library,
+        register_user,
+        login_user,
+        get_user_profile
+    )
+except ModuleNotFoundError:
+    from config import SUPPORTED_MOODS
+    from recommender import MusicRecommendationEngine
+    from database import (
+        init_db,
+        get_song_by_id,
+        discover_songs,
+        get_user_profile_stats,
+        get_user_library,
+        register_user,
+        login_user,
+        get_user_profile
+    )
 
 app = Flask(__name__)
 # Enable CORS for all routes so frontend on any port can access
-CORS(app, resources={r"/api/*": {"origins": "*"}})
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Initialize engine & db
 init_db()
 engine = MusicRecommendationEngine()
+
+
+@app.route("/", methods=["GET"])
+def index():
+    """Root endpoint for health and serverless verification."""
+    return jsonify({
+        "status": "ok",
+        "app": "MoodBeats API",
+        "version": "1.0.0",
+        "message": "MoodBeats Backend API is running.",
+        "endpoints": {
+            "health": "/api/health",
+            "moods": "/api/moods",
+            "discover": "/api/discover",
+            "recommend": "/api/recommend",
+            "detect_mood": "/api/detect-mood"
+        }
+    })
 
 
 @app.route("/api/health", methods=["GET"])

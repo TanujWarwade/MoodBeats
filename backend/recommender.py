@@ -5,32 +5,60 @@ import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 from typing import List, Dict, Any, Optional
 
-from backend.config import (
-    VECTORIZER_PATH,
-    SONG_MATRIX_PATH,
-    PROCESSED_DF_PATH,
-    MOOD_TFIDF_QUERIES,
-    SUPPORTED_MOODS,
-    COSINE_WEIGHT,
-    MOOD_WEIGHT,
-    RATING_WEIGHT,
-    BASE_SCORE_WEIGHT,
-    PREF_MOOD_WEIGHT,
-    PREF_ARTIST_WEIGHT,
-    PREF_YEAR_WEIGHT,
-    LIKE_BONUS,
-    SAVE_BONUS,
-    DISLIKE_PENALTY
-)
-from backend.preprocessing import clean_lyrics
-from backend.mood_detector import detect_mood_from_text, calculate_lyrics_mood_scores
-from backend.database import (
-    get_song_by_id,
-    record_user_feedback,
-    get_user_feedback_history,
-    get_user_profile_stats,
-    extract_youtube_id
-)
+try:
+    from backend.config import (
+        VECTORIZER_PATH,
+        SONG_MATRIX_PATH,
+        PROCESSED_DF_PATH,
+        MOOD_TFIDF_QUERIES,
+        SUPPORTED_MOODS,
+        COSINE_WEIGHT,
+        MOOD_WEIGHT,
+        RATING_WEIGHT,
+        BASE_SCORE_WEIGHT,
+        PREF_MOOD_WEIGHT,
+        PREF_ARTIST_WEIGHT,
+        PREF_YEAR_WEIGHT,
+        LIKE_BONUS,
+        SAVE_BONUS,
+        DISLIKE_PENALTY
+    )
+    from backend.preprocessing import clean_lyrics
+    from backend.mood_detector import detect_mood_from_text, calculate_lyrics_mood_scores
+    from backend.database import (
+        get_song_by_id,
+        record_user_feedback,
+        get_user_feedback_history,
+        get_user_profile_stats,
+        extract_youtube_id
+    )
+except ModuleNotFoundError:
+    from config import (
+        VECTORIZER_PATH,
+        SONG_MATRIX_PATH,
+        PROCESSED_DF_PATH,
+        MOOD_TFIDF_QUERIES,
+        SUPPORTED_MOODS,
+        COSINE_WEIGHT,
+        MOOD_WEIGHT,
+        RATING_WEIGHT,
+        BASE_SCORE_WEIGHT,
+        PREF_MOOD_WEIGHT,
+        PREF_ARTIST_WEIGHT,
+        PREF_YEAR_WEIGHT,
+        LIKE_BONUS,
+        SAVE_BONUS,
+        DISLIKE_PENALTY
+    )
+    from preprocessing import clean_lyrics
+    from mood_detector import detect_mood_from_text, calculate_lyrics_mood_scores
+    from database import (
+        get_song_by_id,
+        record_user_feedback,
+        get_user_feedback_history,
+        get_user_profile_stats,
+        extract_youtube_id
+    )
 
 VALID_ACTIONS = {"like", "dislike", "skip", "save", "play"}
 
@@ -51,7 +79,10 @@ class MusicRecommendationEngine:
     def load_models(self):
         """Load TF-IDF vectorizer, song matrix, and song metadata."""
         if not (os.path.exists(VECTORIZER_PATH) and os.path.exists(SONG_MATRIX_PATH)):
-            from backend.train_model import train
+            try:
+                from backend.train_model import train
+            except ModuleNotFoundError:
+                from train_model import train
             train()
 
         self.vectorizer = joblib.load(VECTORIZER_PATH)
@@ -59,7 +90,10 @@ class MusicRecommendationEngine:
         if os.path.exists(PROCESSED_DF_PATH):
             self.df = joblib.load(PROCESSED_DF_PATH)
         else:
-            from backend.database import get_all_songs_df
+            try:
+                from backend.database import get_all_songs_df
+            except ModuleNotFoundError:
+                from database import get_all_songs_df
             self.df = get_all_songs_df()
 
         # Add 1-based or 0-based index lookup

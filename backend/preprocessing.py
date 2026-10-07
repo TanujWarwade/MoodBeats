@@ -1,6 +1,9 @@
 import re
 import unicodedata
-from backend.config import MOOD_LEXICON
+try:
+    from backend.config import MOOD_LEXICON
+except ModuleNotFoundError:
+    from config import MOOD_LEXICON
 
 # Standard English stopwords (excluding emotional and mood-related words)
 BASE_ENGLISH_STOPWORDS = {

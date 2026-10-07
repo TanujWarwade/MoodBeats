@@ -14,5 +14,7 @@ for _p in (_ROOT_DIR, _BACKEND_DIR):
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-# ── Import Flask WSGI app ─────────────────────────────────────────────────────
-from backend.app import app  # noqa: E402  (Vercel looks for 'app')
+try:
+    from backend.app import app  # noqa: E402
+except ModuleNotFoundError:
+    from app import app  # noqa: E402

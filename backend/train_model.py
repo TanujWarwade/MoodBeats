@@ -12,26 +12,48 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-from backend.config import (
-    CSV_PATH_LEGACY,
-    CSV_PATH_1995_2004,
-    CSV_PATH_2005_2014,
-    CSV_PATH_2015_2025,
-    MODELS_DIR,
-    VECTORIZER_PATH,
-    SONG_MATRIX_PATH,
-    PROCESSED_DF_PATH,
-    TFIDF_MAX_FEATURES,
-    TFIDF_NGRAM_RANGE,
-    TFIDF_MIN_DF,
-    TFIDF_MAX_DF,
-    TFIDF_SUBLINEAR_TF,
-    SUPPORTED_MOODS,
-    MOOD_TFIDF_QUERIES
-)
-from backend.preprocessing import clean_lyrics
-from backend.mood_detector import calculate_lyrics_mood_scores
-from backend.database import init_db, save_songs, extract_youtube_id
+try:
+    from backend.config import (
+        CSV_PATH_LEGACY,
+        CSV_PATH_1995_2004,
+        CSV_PATH_2005_2014,
+        CSV_PATH_2015_2025,
+        MODELS_DIR,
+        VECTORIZER_PATH,
+        SONG_MATRIX_PATH,
+        PROCESSED_DF_PATH,
+        TFIDF_MAX_FEATURES,
+        TFIDF_NGRAM_RANGE,
+        TFIDF_MIN_DF,
+        TFIDF_MAX_DF,
+        TFIDF_SUBLINEAR_TF,
+        SUPPORTED_MOODS,
+        MOOD_TFIDF_QUERIES
+    )
+    from backend.preprocessing import clean_lyrics
+    from backend.mood_detector import calculate_lyrics_mood_scores
+    from backend.database import init_db, save_songs, extract_youtube_id
+except ModuleNotFoundError:
+    from config import (
+        CSV_PATH_LEGACY,
+        CSV_PATH_1995_2004,
+        CSV_PATH_2005_2014,
+        CSV_PATH_2015_2025,
+        MODELS_DIR,
+        VECTORIZER_PATH,
+        SONG_MATRIX_PATH,
+        PROCESSED_DF_PATH,
+        TFIDF_MAX_FEATURES,
+        TFIDF_NGRAM_RANGE,
+        TFIDF_MIN_DF,
+        TFIDF_MAX_DF,
+        TFIDF_SUBLINEAR_TF,
+        SUPPORTED_MOODS,
+        MOOD_TFIDF_QUERIES
+    )
+    from preprocessing import clean_lyrics
+    from mood_detector import calculate_lyrics_mood_scores
+    from database import init_db, save_songs, extract_youtube_id
 
 
 def train():
