@@ -90,12 +90,14 @@ def favicon():
 
 
 @app.route("/api/health", methods=["GET"])
+@app.route("/health", methods=["GET"])
 def health():
     """Health check endpoint."""
     return jsonify({"status": "ok", "app": "MoodBeats", "version": "1.0.0"})
 
 
 @app.route("/api/auth/register", methods=["POST"])
+@app.route("/auth/register", methods=["POST"])
 def auth_register():
     """Register a new user account."""
     data = request.get_json(force=True, silent=True) or {}
@@ -115,6 +117,7 @@ def auth_register():
 
 
 @app.route("/api/auth/login", methods=["POST"])
+@app.route("/auth/login", methods=["POST"])
 def auth_login():
     """Authenticate an existing user."""
     data = request.get_json(force=True, silent=True) or {}
@@ -133,6 +136,7 @@ def auth_login():
 
 
 @app.route("/api/auth/profile", methods=["GET"])
+@app.route("/auth/profile", methods=["GET"])
 def auth_profile():
     """Get current profile by user_id."""
     user_id = request.args.get("user_id", "")
@@ -145,6 +149,7 @@ def auth_profile():
 
 
 @app.route("/api/moods", methods=["GET"])
+@app.route("/moods", methods=["GET"])
 def get_moods():
     """Return all supported primary moods with metadata."""
     return jsonify({
@@ -154,6 +159,7 @@ def get_moods():
 
 
 @app.route("/api/detect-mood", methods=["POST"])
+@app.route("/detect-mood", methods=["POST"])
 def detect_mood_api():
     """
     NLP Mood Detection:
@@ -179,6 +185,7 @@ def detect_mood_api():
 
 
 @app.route("/api/recommend", methods=["POST"])
+@app.route("/recommend", methods=["POST"])
 def recommend_by_mood_api():
     """
     Recommend songs by selected mood:
@@ -199,6 +206,7 @@ def recommend_by_mood_api():
 
 
 @app.route("/api/recommend/text", methods=["POST"])
+@app.route("/recommend/text", methods=["POST"])
 def recommend_by_text_api():
     """
     Recommend songs by natural language input:
@@ -220,6 +228,7 @@ def recommend_by_text_api():
 
 
 @app.route("/api/song/<int:song_id>", methods=["GET"])
+@app.route("/song/<int:song_id>", methods=["GET"])
 def get_song_details(song_id: int):
     """Return full song details, breakdown scores, and explanation."""
     song = get_song_by_id(song_id)
@@ -251,6 +260,7 @@ def get_song_details(song_id: int):
 
 
 @app.route("/api/song/<int:song_id>/similar", methods=["GET"])
+@app.route("/song/<int:song_id>/similar", methods=["GET"])
 def get_similar_songs(song_id: int):
     """Return similar songs using TF-IDF cosine similarity."""
     limit = int(request.args.get("limit", 10))
@@ -264,6 +274,7 @@ def get_similar_songs(song_id: int):
 
 
 @app.route("/api/feedback", methods=["POST"])
+@app.route("/feedback", methods=["POST"])
 def post_feedback():
     """
     Record user feedback action:
@@ -288,6 +299,7 @@ def post_feedback():
 
 
 @app.route("/api/personalized", methods=["GET"])
+@app.route("/personalized", methods=["GET"])
 def get_personalized():
     """
     Returns personalized recommendations based on user feedback profile:
@@ -311,6 +323,7 @@ def get_personalized():
 
 
 @app.route("/api/discover", methods=["GET"])
+@app.route("/discover", methods=["GET"])
 def discover_songs_api():
     """
     Search and filter songs for the Discover page:
@@ -342,6 +355,7 @@ def discover_songs_api():
 
 
 @app.route("/api/user/profile", methods=["GET"])
+@app.route("/user/profile", methods=["GET"])
 def user_profile():
     """Return user's dynamic music personality stats."""
     user_id = request.args.get("user_id", "demo-user")
@@ -353,6 +367,7 @@ def user_profile():
 
 
 @app.route("/api/user/library", methods=["GET"])
+@app.route("/user/library", methods=["GET"])
 def user_library():
     """Return liked, saved, and recently played songs for user."""
     user_id = request.args.get("user_id", "demo-user")
