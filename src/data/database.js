@@ -11,269 +11,117 @@ export const moods = [
 
 const songData = {
   "trending": [
-    {
-      "id": "yt-VAdGW7QDJiU",
-      "spotifyId": "VAdGW7QDJiU",
-      "title": "Chaleya (Jawan)",
-      "artist": "Arijit Singh, Shilpa Rao",
-      "thumbnail": "https://img.youtube.com/vi/VAdGW7QDJiU/hqdefault.jpg",
-      "duration": "3:20"
-    },
-    {
-      "id": "yt-cbmlCJo8A7o",
-      "spotifyId": "cbmlCJo8A7o",
-      "title": "Apna Bana Le",
-      "artist": "Arijit Singh",
-      "thumbnail": "https://img.youtube.com/vi/cbmlCJo8A7o/hqdefault.jpg",
-      "duration": "4:21"
-    },
-    {
-      "id": "yt-Umqb9KENgWE",
-      "spotifyId": "Umqb9KENgWE",
-      "title": "Tum Hi Ho",
-      "artist": "Arijit Singh",
-      "thumbnail": "https://img.youtube.com/vi/Umqb9KENgWE/hqdefault.jpg",
-      "duration": "4:22"
-    },
-    {
-      "id": "yt-YxWlaYCA8MU",
-      "spotifyId": "YxWlaYCA8MU",
-      "title": "Jhoome Jo Pathaan",
-      "artist": "Arijit Singh",
-      "thumbnail": "https://img.youtube.com/vi/YxWlaYCA8MU/hqdefault.jpg",
-      "duration": "3:28"
-    },
-    {
-      "id": "yt-BddP6PYo2gs",
-      "spotifyId": "BddP6PYo2gs",
-      "title": "Kesariya",
-      "artist": "Arijit Singh",
-      "thumbnail": "https://img.youtube.com/vi/BddP6PYo2gs/hqdefault.jpg",
-      "duration": "4:28"
-    },
-    {
-      "id": "yt-8nK1MCRA0k4",
-      "spotifyId": "8nK1MCRA0k4",
-      "title": "O Maahi",
-      "artist": "Arijit Singh",
-      "thumbnail": "https://img.youtube.com/vi/8nK1MCRA0k4/hqdefault.jpg",
-      "duration": "3:53"
-    },
-    {
-      "id": "yt-wF_B_aagLfI",
-      "spotifyId": "wF_B_aagLfI",
-      "title": "Ve Kamleya",
-      "artist": "Arijit Singh",
-      "thumbnail": "https://img.youtube.com/vi/wF_B_aagLfI/hqdefault.jpg",
-      "duration": "4:07"
-    },
-    {
-      "id": "yt-W3q8Od5qJio",
-      "spotifyId": "W3q8Od5qJio",
-      "title": "Raanjhanaa",
-      "artist": "A.R. Rahman",
-      "thumbnail": "https://img.youtube.com/vi/W3q8Od5qJio/hqdefault.jpg",
-      "duration": "5:16"
-    }
+    { "id": "yt-VAdGW7QDJiU", "spotifyId": "VAdGW7QDJiU", "title": "Chaleya", "artist": "Arijit Singh, Shilpa Rao", "thumbnail": "https://img.youtube.com/vi/VAdGW7QDJiU/hqdefault.jpg", "duration": "3:20" },
+    { "id": "yt-cbmlCJo8A7o", "spotifyId": "cbmlCJo8A7o", "title": "Apna Bana Le", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/cbmlCJo8A7o/hqdefault.jpg", "duration": "4:21" },
+    { "id": "yt-Umqb9KENgWE", "spotifyId": "Umqb9KENgWE", "title": "Tum Hi Ho", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/Umqb9KENgWE/hqdefault.jpg", "duration": "4:22" },
+    { "id": "yt-YxWlaYCA8MU", "spotifyId": "YxWlaYCA8MU", "title": "Jhoome Jo Pathaan", "artist": "Arijit Singh, Sukriti Kakar", "thumbnail": "https://img.youtube.com/vi/YxWlaYCA8MU/hqdefault.jpg", "duration": "3:28" },
+    { "id": "yt-BddP6PYo2gs", "spotifyId": "BddP6PYo2gs", "title": "Kesariya", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/BddP6PYo2gs/hqdefault.jpg", "duration": "4:28" },
+    { "id": "yt-8nK1MCRA0k4", "spotifyId": "8nK1MCRA0k4", "title": "O Maahi", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/8nK1MCRA0k4/hqdefault.jpg", "duration": "3:53" },
+    { "id": "yt-wF_B_aagLfI", "spotifyId": "wF_B_aagLfI", "title": "Ve Kamleya", "artist": "Arijit Singh, Shreya Ghoshal", "thumbnail": "https://img.youtube.com/vi/wF_B_aagLfI/hqdefault.jpg", "duration": "4:07" },
+    { "id": "yt-W3q8Od5qJio", "spotifyId": "W3q8Od5qJio", "title": "Raanjhanaa", "artist": "A.R. Rahman", "thumbnail": "https://img.youtube.com/vi/W3q8Od5qJio/hqdefault.jpg", "duration": "5:16" },
+    { "id": "yt-G3iSlV2CXmA", "spotifyId": "G3iSlV2CXmA", "title": "Deva Deva", "artist": "Arijit Singh, Jonita Gandhi", "thumbnail": "https://img.youtube.com/vi/G3iSlV2CXmA/hqdefault.jpg", "duration": "4:23" },
+    { "id": "yt-KzPCCpyqHko", "spotifyId": "KzPCCpyqHko", "title": "Ghungroo", "artist": "Arijit Singh, Shilpa Rao", "thumbnail": "https://img.youtube.com/vi/KzPCCpyqHko/hqdefault.jpg", "duration": "5:00" },
+    { "id": "yt-yeTpyLTRMsU", "spotifyId": "yeTpyLTRMsU", "title": "Pehle Bhi Main", "artist": "Vishal Mishra", "thumbnail": "https://img.youtube.com/vi/yeTpyLTRMsU/hqdefault.jpg", "duration": "4:05" },
+    { "id": "yt-EyvCX29hnFo", "spotifyId": "EyvCX29hnFo", "title": "Hawayein", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/EyvCX29hnFo/hqdefault.jpg", "duration": "4:46" },
+    { "id": "yt-oB7f-YeHZF4", "spotifyId": "oB7f-YeHZF4", "title": "Filhaal", "artist": "B Praak", "thumbnail": "https://img.youtube.com/vi/oB7f-YeHZF4/hqdefault.jpg", "duration": "3:49" },
+    { "id": "yt-zJyZX4E0fmE", "spotifyId": "zJyZX4E0fmE", "title": "Raatan Lambiyan", "artist": "Jubin Nautiyal, Asees Kaur", "thumbnail": "https://img.youtube.com/vi/zJyZX4E0fmE/hqdefault.jpg", "duration": "4:04" },
+    { "id": "yt-_RgNaKRQGV8", "spotifyId": "_RgNaKRQGV8", "title": "Ranjha", "artist": "B Praak, Jasleen Royal", "thumbnail": "https://img.youtube.com/vi/_RgNaKRQGV8/hqdefault.jpg", "duration": "3:38" },
   ],
   "party": [
-    {
-      "id": "yt-VNs_cCtdbPc",
-      "spotifyId": "VNs_cCtdbPc",
-      "title": "Brown Munde",
-      "artist": "AP Dhillon",
-      "thumbnail": "https://img.youtube.com/vi/VNs_cCtdbPc/hqdefault.jpg",
-      "duration": "4:27"
-    },
-    {
-      "id": "yt-fB8XmB-Qj_o",
-      "spotifyId": "fB8XmB-Qj_o",
-      "title": "Zingaat",
-      "artist": "Ajay-Atul",
-      "thumbnail": "https://img.youtube.com/vi/fB8XmB-Qj_o/hqdefault.jpg",
-      "duration": "3:46"
-    },
-    {
-      "id": "yt-k4yXQkG2s1E",
-      "spotifyId": "k4yXQkG2s1E",
-      "title": "Kala Chashma",
-      "artist": "Badshah, Neha Kakkar",
-      "thumbnail": "https://img.youtube.com/vi/k4yXQkG2s1E/hqdefault.jpg",
-      "duration": "3:07"
-    },
-    {
-      "id": "yt-OqRydx_2Q8M",
-      "spotifyId": "OqRydx_2Q8M",
-      "title": "Lutt Putt Gaya",
-      "artist": "Arijit Singh",
-      "thumbnail": "https://img.youtube.com/vi/OqRydx_2Q8M/hqdefault.jpg",
-      "duration": "3:44"
-    },
-    {
-      "id": "yt-NTHz9ephYMc",
-      "spotifyId": "NTHz9ephYMc",
-      "title": "Kar Gayi Chull",
-      "artist": "Badshah",
-      "thumbnail": "https://img.youtube.com/vi/NTHz9ephYMc/hqdefault.jpg",
-      "duration": "3:07"
-    },
-    {
-      "id": "yt-hHuG7FIKgtc",
-      "spotifyId": "hHuG7FIKgtc",
-      "title": "Aankh Marey",
-      "artist": "Neha Kakkar, Mika Singh",
-      "thumbnail": "https://img.youtube.com/vi/hHuG7FIKgtc/hqdefault.jpg",
-      "duration": "3:33"
-    },
-    {
-      "id": "yt-n1a7o44Wx0E",
-      "spotifyId": "n1a7o44Wx0E",
-      "title": "Abhi Toh Party Shuru Hui Hai",
-      "artist": "Badshah",
-      "thumbnail": "https://img.youtube.com/vi/n1a7o44Wx0E/hqdefault.jpg",
-      "duration": "2:59"
-    },
-    {
-      "id": "yt-8VlXxsEOJm8",
-      "spotifyId": "8VlXxsEOJm8",
-      "title": "Dil Chori",
-      "artist": "Yo Yo Honey Singh",
-      "thumbnail": "https://img.youtube.com/vi/8VlXxsEOJm8/hqdefault.jpg",
-      "duration": "3:46"
-    }
+    { "id": "yt-VNs_cCtdbPc", "spotifyId": "VNs_cCtdbPc", "title": "Brown Munde", "artist": "AP Dhillon", "thumbnail": "https://img.youtube.com/vi/VNs_cCtdbPc/hqdefault.jpg", "duration": "4:27" },
+    { "id": "yt-fB8XmB-Qj_o", "spotifyId": "fB8XmB-Qj_o", "title": "Zingaat", "artist": "Ajay-Atul", "thumbnail": "https://img.youtube.com/vi/fB8XmB-Qj_o/hqdefault.jpg", "duration": "3:46" },
+    { "id": "yt-k4yXQkG2s1E", "spotifyId": "k4yXQkG2s1E", "title": "Kala Chashma", "artist": "Badshah, Neha Kakkar", "thumbnail": "https://img.youtube.com/vi/k4yXQkG2s1E/hqdefault.jpg", "duration": "3:07" },
+    { "id": "yt-OqRydx_2Q8M", "spotifyId": "OqRydx_2Q8M", "title": "Lutt Putt Gaya", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/OqRydx_2Q8M/hqdefault.jpg", "duration": "3:44" },
+    { "id": "yt-NTHz9ephYMc", "spotifyId": "NTHz9ephYMc", "title": "Kar Gayi Chull", "artist": "Badshah", "thumbnail": "https://img.youtube.com/vi/NTHz9ephYMc/hqdefault.jpg", "duration": "3:07" },
+    { "id": "yt-hHuG7FIKgtc", "spotifyId": "hHuG7FIKgtc", "title": "Aankh Marey", "artist": "Neha Kakkar, Mika Singh", "thumbnail": "https://img.youtube.com/vi/hHuG7FIKgtc/hqdefault.jpg", "duration": "3:33" },
+    { "id": "yt-n1a7o44Wx0E", "spotifyId": "n1a7o44Wx0E", "title": "Abhi Toh Party Shuru Hui Hai", "artist": "Badshah", "thumbnail": "https://img.youtube.com/vi/n1a7o44Wx0E/hqdefault.jpg", "duration": "2:59" },
+    { "id": "yt-8VlXxsEOJm8", "spotifyId": "8VlXxsEOJm8", "title": "Dil Chori", "artist": "Yo Yo Honey Singh", "thumbnail": "https://img.youtube.com/vi/8VlXxsEOJm8/hqdefault.jpg", "duration": "3:46" },
+    { "id": "yt-n7l28IHOgYQ", "spotifyId": "n7l28IHOgYQ", "title": "Badtameez Dil", "artist": "Benny Dayal", "thumbnail": "https://img.youtube.com/vi/n7l28IHOgYQ/hqdefault.jpg", "duration": "3:52" },
+    { "id": "yt-Gw7jKcUEV0Y", "spotifyId": "Gw7jKcUEV0Y", "title": "Balam Pichkari", "artist": "Vishal Dadlani, Shalmali Kholgade", "thumbnail": "https://img.youtube.com/vi/Gw7jKcUEV0Y/hqdefault.jpg", "duration": "3:59" },
+    { "id": "yt-yEZaZFEMkNo", "spotifyId": "yEZaZFEMkNo", "title": "Lungi Dance", "artist": "Yo Yo Honey Singh", "thumbnail": "https://img.youtube.com/vi/yEZaZFEMkNo/hqdefault.jpg", "duration": "4:06" },
+    { "id": "yt-K14gHwZqxHQ", "spotifyId": "K14gHwZqxHQ", "title": "Sheila Ki Jawani", "artist": "Sunidhi Chauhan", "thumbnail": "https://img.youtube.com/vi/K14gHwZqxHQ/hqdefault.jpg", "duration": "4:04" },
+    { "id": "yt-g5z0diqWzIw", "spotifyId": "g5z0diqWzIw", "title": "Chaka Chak", "artist": "A.R. Rahman, Shreya Ghoshal", "thumbnail": "https://img.youtube.com/vi/g5z0diqWzIw/hqdefault.jpg", "duration": "2:48" },
+    { "id": "yt-3bHkx7VhFHA", "spotifyId": "3bHkx7VhFHA", "title": "Paani Paani", "artist": "Badshah, Aastha Gill", "thumbnail": "https://img.youtube.com/vi/3bHkx7VhFHA/hqdefault.jpg", "duration": "3:04" },
+    { "id": "yt-_TnuBGaVwKQ", "spotifyId": "_TnuBGaVwKQ", "title": "Tamma Tamma Again", "artist": "Badshah, Alia Bhatt", "thumbnail": "https://img.youtube.com/vi/_TnuBGaVwKQ/hqdefault.jpg", "duration": "4:00" },
   ],
   "sad": [
-    {
-      "id": "yt-bzSTpdcs-EI",
-      "spotifyId": "bzSTpdcs-EI",
-      "title": "Channa Mereya",
-      "artist": "Arijit Singh",
-      "thumbnail": "https://img.youtube.com/vi/bzSTpdcs-EI/hqdefault.jpg",
-      "duration": "4:49"
-    },
-    {
-      "id": "yt-jHNNMj5bNQw",
-      "spotifyId": "jHNNMj5bNQw",
-      "title": "Kabira",
-      "artist": "Tochi Raina, Rekha Bhardwaj",
-      "thumbnail": "https://img.youtube.com/vi/jHNNMj5bNQw/hqdefault.jpg",
-      "duration": "3:43"
-    },
-    {
-      "id": "yt-sK7riqg2mrA",
-      "spotifyId": "sK7riqg2mrA",
-      "title": "Agar Tum Saath Ho",
-      "artist": "Alka Yagnik, Arijit Singh",
-      "thumbnail": "https://img.youtube.com/vi/sK7riqg2mrA/hqdefault.jpg",
-      "duration": "5:41"
-    },
-    {
-      "id": "yt-MJyKN-8UncM",
-      "spotifyId": "MJyKN-8UncM",
-      "title": "Shayad",
-      "artist": "Arijit Singh",
-      "thumbnail": "https://img.youtube.com/vi/MJyKN-8UncM/hqdefault.jpg",
-      "duration": "4:07"
-    },
-    {
-      "id": "yt-tVj0ZTS4WF4",
-      "spotifyId": "tVj0ZTS4WF4",
-      "title": "Kal Ho Naa Ho",
-      "artist": "Sonu Nigam",
-      "thumbnail": "https://img.youtube.com/vi/tVj0ZTS4WF4/hqdefault.jpg",
-      "duration": "5:27"
-    },
-    {
-      "id": "yt-LkaKWX3tB3k",
-      "spotifyId": "LkaKWX3tB3k",
-      "title": "Tujhe Bhula Diya",
-      "artist": "Mohit Chauhan",
-      "thumbnail": "https://img.youtube.com/vi/LkaKWX3tB3k/hqdefault.jpg",
-      "duration": "4:39"
-    },
-    {
-      "id": "yt-D_zFv9tqU2w",
-      "spotifyId": "D_zFv9tqU2w",
-      "title": "Naina",
-      "artist": "Arijit Singh",
-      "thumbnail": "https://img.youtube.com/vi/D_zFv9tqU2w/hqdefault.jpg",
-      "duration": "3:45"
-    },
-    {
-      "id": "yt-6DPhFpZW5a8",
-      "spotifyId": "6DPhFpZW5a8",
-      "title": "Tune Jo Na Kaha",
-      "artist": "Mohit Chauhan",
-      "thumbnail": "https://img.youtube.com/vi/6DPhFpZW5a8/hqdefault.jpg",
-      "duration": "5:10"
-    }
+    { "id": "yt-bzSTpdcs-EI", "spotifyId": "bzSTpdcs-EI", "title": "Channa Mereya", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/bzSTpdcs-EI/hqdefault.jpg", "duration": "4:49" },
+    { "id": "yt-jHNNMj5bNQw", "spotifyId": "jHNNMj5bNQw", "title": "Kabira", "artist": "Tochi Raina, Rekha Bhardwaj", "thumbnail": "https://img.youtube.com/vi/jHNNMj5bNQw/hqdefault.jpg", "duration": "3:43" },
+    { "id": "yt-sK7riqg2mrA", "spotifyId": "sK7riqg2mrA", "title": "Agar Tum Saath Ho", "artist": "Alka Yagnik, Arijit Singh", "thumbnail": "https://img.youtube.com/vi/sK7riqg2mrA/hqdefault.jpg", "duration": "5:41" },
+    { "id": "yt-MJyKN-8UncM", "spotifyId": "MJyKN-8UncM", "title": "Shayad", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/MJyKN-8UncM/hqdefault.jpg", "duration": "4:07" },
+    { "id": "yt-tVj0ZTS4WF4", "spotifyId": "tVj0ZTS4WF4", "title": "Kal Ho Naa Ho", "artist": "Sonu Nigam", "thumbnail": "https://img.youtube.com/vi/tVj0ZTS4WF4/hqdefault.jpg", "duration": "5:27" },
+    { "id": "yt-LkaKWX3tB3k", "spotifyId": "LkaKWX3tB3k", "title": "Tujhe Bhula Diya", "artist": "Mohit Chauhan", "thumbnail": "https://img.youtube.com/vi/LkaKWX3tB3k/hqdefault.jpg", "duration": "4:39" },
+    { "id": "yt-D_zFv9tqU2w", "spotifyId": "D_zFv9tqU2w", "title": "Naina", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/D_zFv9tqU2w/hqdefault.jpg", "duration": "3:45" },
+    { "id": "yt-6DPhFpZW5a8", "spotifyId": "6DPhFpZW5a8", "title": "Tune Jo Na Kaha", "artist": "Mohit Chauhan", "thumbnail": "https://img.youtube.com/vi/6DPhFpZW5a8/hqdefault.jpg", "duration": "5:10" },
+    { "id": "yt-K1XBBczh39s", "spotifyId": "K1XBBczh39s", "title": "Tujhe Kitna Chahne Lage", "artist": "Jubin Nautiyal", "thumbnail": "https://img.youtube.com/vi/K1XBBczh39s/hqdefault.jpg", "duration": "4:27" },
+    { "id": "yt-WOjNSGDRjnA", "spotifyId": "WOjNSGDRjnA", "title": "Bekhayali", "artist": "Sachet Tandon", "thumbnail": "https://img.youtube.com/vi/WOjNSGDRjnA/hqdefault.jpg", "duration": "5:16" },
+    { "id": "yt-VTLFKxIjB4g", "spotifyId": "VTLFKxIjB4g", "title": "Sun Raha Hai", "artist": "Ankit Tiwari", "thumbnail": "https://img.youtube.com/vi/VTLFKxIjB4g/hqdefault.jpg", "duration": "4:22" },
+    { "id": "yt-FGS5nU0E71c", "spotifyId": "FGS5nU0E71c", "title": "Tu Jaane Na", "artist": "Atif Aslam", "thumbnail": "https://img.youtube.com/vi/FGS5nU0E71c/hqdefault.jpg", "duration": "5:28" },
+    { "id": "yt-RrJkJqXtjaA", "spotifyId": "RrJkJqXtjaA", "title": "Moh Moh Ke Dhaage", "artist": "Monali Thakur", "thumbnail": "https://img.youtube.com/vi/RrJkJqXtjaA/hqdefault.jpg", "duration": "3:45" },
+    { "id": "yt-mGa_8Dqf6mE", "spotifyId": "mGa_8Dqf6mE", "title": "Soch Na Sake", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/mGa_8Dqf6mE/hqdefault.jpg", "duration": "4:10" },
+    { "id": "yt-bFXGiB_WylI", "spotifyId": "bFXGiB_WylI", "title": "Mann Bharrya 2.0", "artist": "B Praak", "thumbnail": "https://img.youtube.com/vi/bFXGiB_WylI/hqdefault.jpg", "duration": "3:48" },
   ],
   "romantic": [
-    {
-      "id": "yt-z2IQxV1u5-w",
-      "spotifyId": "z2IQxV1u5-w",
-      "title": "Raabta",
-      "artist": "Arijit Singh",
-      "thumbnail": "https://img.youtube.com/vi/z2IQxV1u5-w/hqdefault.jpg",
-      "duration": "4:04"
-    },
-    {
-      "id": "yt-5EQrwV0t1sY",
-      "spotifyId": "5EQrwV0t1sY",
-      "title": "Pehli Nazar Mein",
-      "artist": "Atif Aslam",
-      "thumbnail": "https://img.youtube.com/vi/5EQrwV0t1sY/hqdefault.jpg",
-      "duration": "5:13"
-    },
-    {
-      "id": "yt-v7K4vGYL9zI",
-      "spotifyId": "v7K4vGYL9zI",
-      "title": "Tujh Mein Rab Dikhta Hai",
-      "artist": "Roop Kumar Rathod",
-      "thumbnail": "https://img.youtube.com/vi/v7K4vGYL9zI/hqdefault.jpg",
-      "duration": "4:41"
-    },
-    {
-      "id": "yt-pElk1Sh_w8E",
-      "spotifyId": "pElk1Sh_w8E",
-      "title": "Gerua",
-      "artist": "Arijit Singh, Antara Mitra",
-      "thumbnail": "https://img.youtube.com/vi/pElk1Sh_w8E/hqdefault.jpg",
-      "duration": "5:45"
-    },
-    {
-      "id": "yt-z1g_S0DudYc",
-      "spotifyId": "z1g_S0DudYc",
-      "title": "Tere Sang Yaara",
-      "artist": "Atif Aslam",
-      "thumbnail": "https://img.youtube.com/vi/z1g_S0DudYc/hqdefault.jpg",
-      "duration": "4:50"
-    },
-    {
-      "id": "yt-uf7GInx5k-0",
-      "spotifyId": "uf7GInx5k-0",
-      "title": "Enna Sona",
-      "artist": "Arijit Singh",
-      "thumbnail": "https://img.youtube.com/vi/uf7GInx5k-0/hqdefault.jpg",
-      "duration": "3:33"
-    },
-    {
-      "id": "yt-K4yZ9gVq1G0",
-      "spotifyId": "K4yZ9gVq1G0",
-      "title": "Samjhawan",
-      "artist": "Arijit Singh, Shreya Ghoshal",
-      "thumbnail": "https://img.youtube.com/vi/K4yZ9gVq1G0/hqdefault.jpg",
-      "duration": "4:29"
-    },
-    {
-      "id": "yt-W07KqG8F2oU",
-      "spotifyId": "W07KqG8F2oU",
-      "title": "Tera Ban Jaunga",
-      "artist": "Akhil Sachdeva, Tulsi Kumar",
-      "thumbnail": "https://img.youtube.com/vi/W07KqG8F2oU/hqdefault.jpg",
-      "duration": "3:56"
-    }
-  ]
+    { "id": "yt-z2IQxV1u5-w", "spotifyId": "z2IQxV1u5-w", "title": "Raabta", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/z2IQxV1u5-w/hqdefault.jpg", "duration": "4:04" },
+    { "id": "yt-5EQrwV0t1sY", "spotifyId": "5EQrwV0t1sY", "title": "Pehli Nazar Mein", "artist": "Atif Aslam", "thumbnail": "https://img.youtube.com/vi/5EQrwV0t1sY/hqdefault.jpg", "duration": "5:13" },
+    { "id": "yt-v7K4vGYL9zI", "spotifyId": "v7K4vGYL9zI", "title": "Tujh Mein Rab Dikhta Hai", "artist": "Roop Kumar Rathod", "thumbnail": "https://img.youtube.com/vi/v7K4vGYL9zI/hqdefault.jpg", "duration": "4:41" },
+    { "id": "yt-pElk1Sh_w8E", "spotifyId": "pElk1Sh_w8E", "title": "Gerua", "artist": "Arijit Singh, Antara Mitra", "thumbnail": "https://img.youtube.com/vi/pElk1Sh_w8E/hqdefault.jpg", "duration": "5:45" },
+    { "id": "yt-z1g_S0DudYc", "spotifyId": "z1g_S0DudYc", "title": "Tere Sang Yaara", "artist": "Atif Aslam", "thumbnail": "https://img.youtube.com/vi/z1g_S0DudYc/hqdefault.jpg", "duration": "4:50" },
+    { "id": "yt-uf7GInx5k-0", "spotifyId": "uf7GInx5k-0", "title": "Enna Sona", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/uf7GInx5k-0/hqdefault.jpg", "duration": "3:33" },
+    { "id": "yt-K4yZ9gVq1G0", "spotifyId": "K4yZ9gVq1G0", "title": "Samjhawan", "artist": "Arijit Singh, Shreya Ghoshal", "thumbnail": "https://img.youtube.com/vi/K4yZ9gVq1G0/hqdefault.jpg", "duration": "4:29" },
+    { "id": "yt-W07KqG8F2oU", "spotifyId": "W07KqG8F2oU", "title": "Tera Ban Jaunga", "artist": "Akhil Sachdeva, Tulsi Kumar", "thumbnail": "https://img.youtube.com/vi/W07KqG8F2oU/hqdefault.jpg", "duration": "3:56" },
+    { "id": "yt-gYlEGBmRLgc", "spotifyId": "gYlEGBmRLgc", "title": "Ae Dil Hai Mushkil", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/gYlEGBmRLgc/hqdefault.jpg", "duration": "4:47" },
+    { "id": "yt-ygLbqTDc2ls", "spotifyId": "ygLbqTDc2ls", "title": "Ik Vaari Aa", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/ygLbqTDc2ls/hqdefault.jpg", "duration": "4:34" },
+    { "id": "yt-k8-fMi0dLa0", "spotifyId": "k8-fMi0dLa0", "title": "Kalank", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/k8-fMi0dLa0/hqdefault.jpg", "duration": "5:31" },
+    { "id": "yt-nEp8ZPFpCg0", "spotifyId": "nEp8ZPFpCg0", "title": "Duniyaa", "artist": "Akhil, Dhvani Bhanushali", "thumbnail": "https://img.youtube.com/vi/nEp8ZPFpCg0/hqdefault.jpg", "duration": "3:47" },
+    { "id": "yt-sVmRnGiQz0w", "spotifyId": "sVmRnGiQz0w", "title": "Dil Ko Karar Aaya", "artist": "Neha Kakkar, Yasser Desai", "thumbnail": "https://img.youtube.com/vi/sVmRnGiQz0w/hqdefault.jpg", "duration": "3:21" },
+    { "id": "yt-zJyZX4E0fmE2", "spotifyId": "zJyZX4E0fmE", "title": "Raatan Lambiyan (Romantic)", "artist": "Jubin Nautiyal, Asees Kaur", "thumbnail": "https://img.youtube.com/vi/zJyZX4E0fmE/hqdefault.jpg", "duration": "4:04" },
+    { "id": "yt-EyvCX29hnFo2", "spotifyId": "EyvCX29hnFo", "title": "Hawayein (Romantic)", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/EyvCX29hnFo/hqdefault.jpg", "duration": "4:46" },
+  ],
+  "chill": [
+    { "id": "yt-CfDLU1rQfTs", "spotifyId": "CfDLU1rQfTs", "title": "Lag Ja Gale", "artist": "Lata Mangeshkar", "thumbnail": "https://img.youtube.com/vi/CfDLU1rQfTs/hqdefault.jpg", "duration": "4:15" },
+    { "id": "yt-ZVy5GXj90EY", "spotifyId": "ZVy5GXj90EY", "title": "Iktara", "artist": "Kavita Seth", "thumbnail": "https://img.youtube.com/vi/ZVy5GXj90EY/hqdefault.jpg", "duration": "4:41" },
+    { "id": "yt-GXyopBpEFhM", "spotifyId": "GXyopBpEFhM", "title": "Chaudhary", "artist": "Mame Khan", "thumbnail": "https://img.youtube.com/vi/GXyopBpEFhM/hqdefault.jpg", "duration": "5:03" },
+    { "id": "yt-PKa3RY3Cqr8", "spotifyId": "PKa3RY3Cqr8", "title": "Darkhaast", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/PKa3RY3Cqr8/hqdefault.jpg", "duration": "4:12" },
+    { "id": "yt-lc_OdPNRBJ0", "spotifyId": "lc_OdPNRBJ0", "title": "Naina (Dangal)", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/lc_OdPNRBJ0/hqdefault.jpg", "duration": "3:42" },
+    { "id": "yt-M6LTEjN4VEE", "spotifyId": "M6LTEjN4VEE", "title": "Baarish", "artist": "Mohit Chauhan, Shreya Ghoshal", "thumbnail": "https://img.youtube.com/vi/M6LTEjN4VEE/hqdefault.jpg", "duration": "4:07" },
+    { "id": "yt-bFXGiB_WylI2", "spotifyId": "bFXGiB_WylI", "title": "Mann Bharrya", "artist": "B Praak", "thumbnail": "https://img.youtube.com/vi/bFXGiB_WylI/hqdefault.jpg", "duration": "3:48" },
+    { "id": "yt-8nK1MCRA0k4c", "spotifyId": "8nK1MCRA0k4", "title": "O Maahi (Chill)", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/8nK1MCRA0k4/hqdefault.jpg", "duration": "3:53" },
+    { "id": "yt-tVj0ZTS4WF4c", "spotifyId": "tVj0ZTS4WF4", "title": "Kal Ho Naa Ho (Title)", "artist": "Sonu Nigam", "thumbnail": "https://img.youtube.com/vi/tVj0ZTS4WF4/hqdefault.jpg", "duration": "5:27" },
+    { "id": "yt-MJyKN-8UncMc", "spotifyId": "MJyKN-8UncM", "title": "Shayad (Chill)", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/MJyKN-8UncM/hqdefault.jpg", "duration": "4:07" },
+  ],
+  "workout": [
+    { "id": "yt-KzPCCpyqHkow", "spotifyId": "KzPCCpyqHko", "title": "Ghungroo", "artist": "Arijit Singh, Shilpa Rao", "thumbnail": "https://img.youtube.com/vi/KzPCCpyqHko/hqdefault.jpg", "duration": "5:00" },
+    { "id": "yt-n7l28IHOgYQw", "spotifyId": "n7l28IHOgYQ", "title": "Badtameez Dil", "artist": "Benny Dayal", "thumbnail": "https://img.youtube.com/vi/n7l28IHOgYQ/hqdefault.jpg", "duration": "3:52" },
+    { "id": "yt-yEZaZFEMkNow", "spotifyId": "yEZaZFEMkNo", "title": "Lungi Dance", "artist": "Yo Yo Honey Singh", "thumbnail": "https://img.youtube.com/vi/yEZaZFEMkNo/hqdefault.jpg", "duration": "4:06" },
+    { "id": "yt-VNs_cCtdbPcw", "spotifyId": "VNs_cCtdbPc", "title": "Brown Munde", "artist": "AP Dhillon", "thumbnail": "https://img.youtube.com/vi/VNs_cCtdbPc/hqdefault.jpg", "duration": "4:27" },
+    { "id": "yt-g5z0diqWzIww", "spotifyId": "g5z0diqWzIw", "title": "Chaka Chak", "artist": "A.R. Rahman, Shreya Ghoshal", "thumbnail": "https://img.youtube.com/vi/g5z0diqWzIw/hqdefault.jpg", "duration": "2:48" },
+    { "id": "yt-3bHkx7VhFHAw", "spotifyId": "3bHkx7VhFHA", "title": "Paani Paani", "artist": "Badshah, Aastha Gill", "thumbnail": "https://img.youtube.com/vi/3bHkx7VhFHA/hqdefault.jpg", "duration": "3:04" },
+    { "id": "yt-mGa_8Dqf6mEw", "spotifyId": "mGa_8Dqf6mE", "title": "Soch Na Sake", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/mGa_8Dqf6mE/hqdefault.jpg", "duration": "4:10" },
+    { "id": "yt-K14gHwZqxHQw", "spotifyId": "K14gHwZqxHQ", "title": "Sheila Ki Jawani", "artist": "Sunidhi Chauhan", "thumbnail": "https://img.youtube.com/vi/K14gHwZqxHQ/hqdefault.jpg", "duration": "4:04" },
+    { "id": "yt-Gw7jKcUEV0Yw", "spotifyId": "Gw7jKcUEV0Y", "title": "Balam Pichkari", "artist": "Vishal Dadlani", "thumbnail": "https://img.youtube.com/vi/Gw7jKcUEV0Y/hqdefault.jpg", "duration": "3:59" },
+    { "id": "yt-_TnuBGaVwKQw", "spotifyId": "_TnuBGaVwKQ", "title": "Tamma Tamma Again", "artist": "Badshah, Alia Bhatt", "thumbnail": "https://img.youtube.com/vi/_TnuBGaVwKQ/hqdefault.jpg", "duration": "4:00" },
+  ],
+  "devotional": [
+    { "id": "yt-EQp6HFNFubI", "spotifyId": "EQp6HFNFubI", "title": "Kun Faya Kun", "artist": "A.R. Rahman, Javed Ali", "thumbnail": "https://img.youtube.com/vi/EQp6HFNFubI/hqdefault.jpg", "duration": "7:53" },
+    { "id": "yt-V4NBLVLXKVE", "spotifyId": "V4NBLVLXKVE", "title": "Ae Watan", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/V4NBLVLXKVE/hqdefault.jpg", "duration": "4:33" },
+    { "id": "yt-CfDLU1rQfTsd", "spotifyId": "CfDLU1rQfTs", "title": "Lag Ja Gale", "artist": "Lata Mangeshkar", "thumbnail": "https://img.youtube.com/vi/CfDLU1rQfTs/hqdefault.jpg", "duration": "4:15" },
+    { "id": "yt-ZVy5GXj90EYd", "spotifyId": "ZVy5GXj90EY", "title": "Iktara", "artist": "Kavita Seth", "thumbnail": "https://img.youtube.com/vi/ZVy5GXj90EY/hqdefault.jpg", "duration": "4:41" },
+    { "id": "yt-GXyopBpEFhMd", "spotifyId": "GXyopBpEFhM", "title": "Chaudhary (Devotional)", "artist": "Mame Khan", "thumbnail": "https://img.youtube.com/vi/GXyopBpEFhM/hqdefault.jpg", "duration": "5:03" },
+    { "id": "yt-lc_OdPNRBJ0d", "spotifyId": "lc_OdPNRBJ0", "title": "Naina", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/lc_OdPNRBJ0/hqdefault.jpg", "duration": "3:42" },
+    { "id": "yt-W3q8Od5qJiod", "spotifyId": "W3q8Od5qJio", "title": "Raanjhanaa (Devotional)", "artist": "A.R. Rahman", "thumbnail": "https://img.youtube.com/vi/W3q8Od5qJio/hqdefault.jpg", "duration": "5:16" },
+    { "id": "yt-G3iSlV2CXmAd", "spotifyId": "G3iSlV2CXmA", "title": "Deva Deva (Devotional)", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/G3iSlV2CXmA/hqdefault.jpg", "duration": "4:23" },
+  ],
+  "focus": [
+    { "id": "yt-ZVy5GXj90EYf", "spotifyId": "ZVy5GXj90EY", "title": "Iktara", "artist": "Kavita Seth", "thumbnail": "https://img.youtube.com/vi/ZVy5GXj90EY/hqdefault.jpg", "duration": "4:41" },
+    { "id": "yt-GXyopBpEFhMf", "spotifyId": "GXyopBpEFhM", "title": "Chaudhary", "artist": "Mame Khan", "thumbnail": "https://img.youtube.com/vi/GXyopBpEFhM/hqdefault.jpg", "duration": "5:03" },
+    { "id": "yt-M6LTEjN4VEEf", "spotifyId": "M6LTEjN4VEE", "title": "Baarish", "artist": "Mohit Chauhan, Shreya Ghoshal", "thumbnail": "https://img.youtube.com/vi/M6LTEjN4VEE/hqdefault.jpg", "duration": "4:07" },
+    { "id": "yt-lc_OdPNRBJ0f", "spotifyId": "lc_OdPNRBJ0", "title": "Naina (Focus)", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/lc_OdPNRBJ0/hqdefault.jpg", "duration": "3:42" },
+    { "id": "yt-PKa3RY3Cqr8f", "spotifyId": "PKa3RY3Cqr8", "title": "Darkhaast", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/PKa3RY3Cqr8/hqdefault.jpg", "duration": "4:12" },
+    { "id": "yt-CfDLU1rQfTsf", "spotifyId": "CfDLU1rQfTs", "title": "Lag Ja Gale", "artist": "Lata Mangeshkar", "thumbnail": "https://img.youtube.com/vi/CfDLU1rQfTs/hqdefault.jpg", "duration": "4:15" },
+    { "id": "yt-EyvCX29hnFof", "spotifyId": "EyvCX29hnFo", "title": "Hawayein", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/EyvCX29hnFo/hqdefault.jpg", "duration": "4:46" },
+    { "id": "yt-BddP6PYo2gsf", "spotifyId": "BddP6PYo2gs", "title": "Kesariya (Focus)", "artist": "Arijit Singh", "thumbnail": "https://img.youtube.com/vi/BddP6PYo2gs/hqdefault.jpg", "duration": "4:28" },
+  ],
 };
 
 export const getSongs = (moodId) => {

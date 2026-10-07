@@ -56,12 +56,31 @@ export async function detectMood(text) {
 
 import { getSongs } from '../data/database';
 
+// Maps backend mood IDs → frontend database category IDs
+const MOOD_TO_CATEGORY = {
+  'happy': 'party',
+  'romantic': 'romantic',
+  'sad': 'sad',
+  'calm': 'chill',
+  'chill': 'chill',
+  'energetic': 'workout',
+  'motivational': 'workout',
+  'nostalgic': 'trending',
+  'devotional': 'devotional',
+  'focus': 'focus',
+  'party': 'party',
+  'trending': 'trending',
+  'workout': 'workout',
+};
+
 function getStaticFallbackSongs(mood = '', query = '') {
   const allCategories = ['trending', 'party', 'romantic', 'sad', 'chill', 'workout', 'devotional', 'focus'];
   let list = [];
   if (mood) {
     const key = mood.toLowerCase();
-    list = getSongs(key) || [];
+    // Map backend mood name → database category, fallback to trending
+    const categoryKey = MOOD_TO_CATEGORY[key] || key;
+    list = getSongs(categoryKey) || [];
   }
   if (!list || list.length === 0) {
     const seen = new Set();
@@ -94,6 +113,7 @@ function getStaticFallbackSongs(mood = '', query = '') {
     era: '2020s'
   }));
 }
+
 
 export async function getRecommendationsByMood(mood, limit = 60, userId = 'demo-user') {
   const key = `${mood}_${limit}_${userId}`;
