@@ -14,7 +14,9 @@ for _p in (_ROOT_DIR, _BACKEND_DIR):
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-try:
-    from backend.app import app  # noqa: E402
-except ModuleNotFoundError:
-    from app import app  # noqa: E402
+from backend.app import app
+
+# Top-level exports for Vercel (@vercel/python looks for 'app', 'application', or 'handler')
+app = app
+application = app
+handler = app

@@ -18,7 +18,9 @@ if "backend" not in sys.modules:
         _backend_pkg.__file__ = os.path.join(_BACKEND_DIR, "__init__.py")
         sys.modules["backend"] = _backend_pkg
 
-try:
-    from backend.app import app  # noqa: F401
-except ModuleNotFoundError:
-    from app import app  # noqa: F401
+from backend.app import app
+
+# Top-level exports for Vercel
+app = app
+application = app
+handler = app
