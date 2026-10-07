@@ -79,10 +79,14 @@ def index():
             "health": "/api/health",
             "moods": "/api/moods",
             "discover": "/api/discover",
-            "recommend": "/api/recommend",
-            "detect_mood": "/api/detect-mood"
         }
     })
+
+
+@app.route("/favicon.ico", methods=["GET"])
+def favicon():
+    """Silence browser favicon requests."""
+    return ("", 204)
 
 
 @app.route("/api/health", methods=["GET"])
